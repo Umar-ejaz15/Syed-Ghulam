@@ -89,7 +89,7 @@ const About2 = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="transform w-full h-[60vh] hover:scale-105 transition-transform duration-500 border-4 border-purple-500 p-8 sm:p-10 md:p-12 rounded-xl bg-gradient-to-br from-purple-900/40 to-purple-800/30 backdrop-blur-xl shadow-2xl hover:shadow-purple-500/60 flex flex-col justify-between items-center"
+              className="transform w-full  md:h-[60vh] hover:scale-105 transition-transform duration-500 border-4 border-purple-500 p-8 sm:p-10 md:p-12 rounded-xl bg-gradient-to-br from-purple-900/40 to-purple-800/30 backdrop-blur-xl shadow-2xl hover:shadow-purple-500/60 flex flex-col justify-between items-center"
             >
               <div>
                 <h3 className="text-2xl sm:text-3xl md:text-8xl font-extrabold mb-4 sm:mb-6 text-purple-300 flex items-center gap-3">
