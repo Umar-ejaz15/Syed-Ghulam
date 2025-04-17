@@ -1,102 +1,133 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from "react";
+import { motion } from "framer-motion";
 
 const Services = () => {
   const services = [
     {
       title: "Data Analysis",
       icon: "📊",
-      description: "Expert in data cleaning, preprocessing, and advanced statistical analysis to derive meaningful insights from complex datasets.",
-      tools: ["Python", "Pandas", "NumPy", "SciPy", "SQL"]
+      description:
+        "Expert in data cleaning, preprocessing, and statistical analysis.",
+      tools: ["Python", "Pandas", "SQL"],
     },
     {
       title: "Data Visualization",
       icon: "📈",
-      description: "Creating compelling visual stories through interactive dashboards and reports that transform raw data into actionable insights.",
-      tools: ["Power BI", "Tableau", "Matplotlib", "Seaborn", "Plotly"]
+      description:
+        "Creating interactive dashboards and reports for actionable insights.",
+      tools: ["Power BI", "Tableau", "Matplotlib"],
     },
     {
       title: "Business Intelligence",
       icon: "💼",
-      description: "Implementing ETL processes and data warehousing solutions to drive data-driven decision making.",
-      tools: ["SQL", "ETL", "Data Warehousing", "Advanced Excel", "Data Studio"]
+      description: "Implementing ETL processes and data warehousing solutions.",
+      tools: ["SQL", "ETL", "Data Warehousing"],
     },
     {
       title: "Machine Learning",
       icon: "🤖",
-      description: "Developing and implementing machine learning models for predictive analytics and pattern recognition.",
-      tools: ["Scikit-learn", "TensorFlow", "PyTorch", "Jupyter", "Google Colab"]
+      description: "Developing ML models for predictive analytics.",
+      tools: ["Scikit-learn", "TensorFlow", "PyTorch"],
     },
     {
       title: "Web Development",
       icon: "💻",
-      description: "Building responsive and dynamic web applications using modern frameworks and best practices.",
-      tools: ["React", "JavaScript", "HTML", "CSS", "Node.js"]
+      description: "Building responsive and dynamic web applications.",
+      tools: ["React", "JavaScript", "Node.js"],
     },
     {
       title: "Python Development",
       icon: "🐍",
-      description: "Creating efficient and scalable applications using Python's extensive ecosystem.",
-      tools: ["Python", "Django", "Flask", "FastAPI", "REST APIs"]
+      description: "Creating efficient applications using Python.",
+      tools: ["Python", "Django", "FastAPI"],
     },
     {
       title: "Statistical Analysis",
       icon: "📉",
-      description: "Conducting thorough statistical analysis to uncover patterns and relationships in data.",
-      tools: ["R", "SPSS", "Statistical Testing", "Regression Analysis"]
+      description: "Conducting statistical analysis to uncover patterns.",
+      tools: ["R", "Statistical Testing", "Regression"],
     },
     {
       title: "Data Engineering",
       icon: "⚙️",
-      description: "Building robust data pipelines and infrastructure for efficient data processing and analysis.",
-      tools: ["Apache Spark", "Airflow", "Docker", "AWS", "GCP"]
-    }
-  ]
-
+      description: "Building robust data pipelines and infrastructure.",
+      tools: ["Apache Spark", "Airflow", "AWS"],
+    },
+  ];
 
   return (
-    <div className="mx-auto px-4 py-16 bg-black flex justify-center">
-      <div className="container">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-3xl sm:text-2xl font-bold text-center mb-12 text-purple-500"
-        >
-          Stuff I'm Really Good At
-        </motion.h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 place-items-center">
-          {services.map((service, index) => (
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative group w-full max-w-[320px] h-[320px] sm:w-[260px] sm:h-[260px] md:w-[280px] md:h-[280px] lg:w-[280px] lg:h-[280px] bg-purple-100 rounded-full shadow-lg overflow-hidden cursor-pointer transform transition-transform duration-500 hover:scale-105" 
-              key={index}
-            >
-              <div className="absolute inset-0">
-                <div className="absolute inset-0 flex flex-col items-center justify-center transform transition-transform duration-500 group-hover:-translate-x-full">
-                  <div className="text-3xl sm:text-4xl mb-4">{service.icon}</div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-center text-black px-4">{service.title}</h3>
-                </div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 bg-purple-800 text-white transform transition-transform duration-500 translate-x-full group-hover:translate-x-0">
-                  <p className="text-xs sm:text-sm text-center mb-2 sm:mb-4">{service.description}</p>
-                  <div className="w-full">
-                    <h4 className="font-semibold text-sm mb-2">Tools:</h4>
-                    <ul className="flex flex-wrap justify-center gap-1 sm:gap-2">
-                      {service.tools.map((tool, idx) => (
-                        <li key={idx} className="text-[10px] sm:text-xs bg-purple-950 px-2 py-1 rounded-xl">{tool}</li>
-                      ))}
-                    </ul>
+    <motion.section
+     
+      className="w-full min-h-screen px-4 py-12 bg-black"
+    >
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col items-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl font-bold text-center mb-8 text-purple-500"
+          >
+            Stuff I'm Really Good At
+          </motion.h2>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "5rem" }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5 }}
+            className="h-1 bg-purple-500 mb-8"
+          ></motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 w-full">
+            {services.map((service, index) => (
+              <motion.div
+                initial={{ scale: 0, y: 100 }}
+                whileInView={{ scale: 1,y: 0 }}
+                viewport={{ once: false }}
+                transition={{
+                  duration: 0.1,
+                  delay: index * 0.01,
+                
+               
+                }}
+                className="relative group h-[180px] bg-purple-100 rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
+                key={index}
+              >
+                <div className="absolute inset-0 w-full h-full">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center transform transition-transform duration-300 group-hover:-translate-x-full">
+                    <div className="text-4xl mb-4">{service.icon}</div>
+                    <h3 className="text-base font-semibold text-center text-black px-2">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-purple-800 text-white transform transition-transform duration-300 translate-x-full group-hover:translate-x-0">
+                    <p className="text-sm text-center mb-3">
+                      {service.description}
+                    </p>
+                    <div className="w-full">
+                      <h4 className="font-semibold text-xs mb-2 text-center">
+                        Tools:
+                      </h4>
+                      <ul className="flex flex-wrap justify-center gap-2">
+                        {service.tools.map((tool, idx) => (
+                          <li
+                            key={idx}
+                            className="text-xs bg-purple-950 px-2 py-1 rounded-xl whitespace-nowrap"
+                          >
+                            {tool}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  )
-}
+    </motion.section>
+  );
+};
 
-export default Services
+export default Services;

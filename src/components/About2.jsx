@@ -89,12 +89,19 @@ const About2 = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="transform hover:scale-105 transition-transform duration-300 border-2 border-purple-500 p-4 sm:p-5 md:p-6 rounded-3xl bg-purple-900/30 backdrop-blur-lg shadow-lg hover:shadow-purple-500/50"
+              className="transform w-full h-[60vh] hover:scale-105 transition-transform duration-500 border-4 border-purple-500 p-8 sm:p-10 md:p-12 rounded-xl bg-gradient-to-br from-purple-900/40 to-purple-800/30 backdrop-blur-xl shadow-2xl hover:shadow-purple-500/60 flex flex-col justify-between items-center"
             >
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 text-purple-400 flex items-center gap-2">
-                {card.title} <span className="text-xs sm:text-sm">{card.subtitle}</span>
-              </h3>
-              <p className="text-sm sm:text-base text-gray-200">{card.description}</p>
+              <div>
+                <h3 className="text-2xl sm:text-3xl md:text-8xl font-extrabold mb-4 sm:mb-6 text-purple-300 flex items-center gap-3">
+                  {card.title} 
+                  <span className="text-sm sm:text-md font-semibold bg-purple-500/20 px-3 py-1 rounded-full">
+                    {card.subtitle}
+                  </span>
+                </h3>
+                <p className="text-base sm:text-lg text-gray-200 leading-relaxed font-medium">
+                  {card.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
