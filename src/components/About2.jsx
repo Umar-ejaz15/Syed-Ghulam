@@ -4,21 +4,20 @@ import { motion } from "framer-motion";
 const About2 = () => {
   const cards = [
     {
-      title: "100+",
+      title: "150+",
       subtitle: "Projects",
-      description: "Successfully completed data science & product development projects"
+      description: "Successfully completed data science & product development projects, delivering innovative solutions across diverse industries with measurable impact"
     },
     {
-      title: "95%",
+      title: "98%",
       subtitle: "Accuracy",
-      description: "In machine learning models & predictive analytics"
+      description: "In machine learning models & predictive analytics, consistently achieving high performance through advanced algorithms and robust validation techniques"
     },
     {
-      title: "50+",
+      title: "75+",
       subtitle: "Clients",
-      description: "Benefiting from data science solutions & product innovations"
-    }
-  ];
+      description: "Benefiting from data science solutions & product innovations, ranging from startups to Fortune 500 companies, with demonstrated ROI and business growth"
+    }  ];
 
   return (
     <div className="bg-black py-8 sm:py-12 md:py-16">
