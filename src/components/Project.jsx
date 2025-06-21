@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, EffectCoverflow, Navigation, Autoplay } from "swiper/modules";
+import {
+  Pagination,
+  EffectCoverflow,
+  Navigation,
+  Autoplay,
+} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
@@ -12,60 +17,54 @@ const Project = () => {
   const projects = [
     {
       id: 1,
-      title: "Olympic Games Dashboard",
+      title: "PSL Win Prediction",
       description:
-        "Interactive dashboard showcasing historical Olympic data, medal counts, and athlete performances across different games and countries.",
-      image: "/projects/Olympic dashboard.jpg",
-      tags: ["Power BI", "Data Visualization", "Analytics"],
+        "Machine learning model to predict Pakistan Super League cricket match outcomes using historical data, team statistics, and player performance metrics.",
+      image: "/psl.jpg",
+      link: "https://github.com/imgmdin/PSL-Win-Prediction/blob/main/Psl.ipynb",
+      tags: ["Python", "Machine Learning", "Data Analysis", "Sports Analytics"],
     },
     {
       id: 2,
-      title: "Hospital Management Dashboard",
+      title: "Language Detector",
       description:
-        "Advanced healthcare analytics dashboard providing real-time insights into patient care, resource allocation, and hospital performance metrics.",
-      image: "/projects/Hospital datadashbord with power.jpg",
-      tags: ["Power BI", "Healthcare Analytics", "Dashboard"],
+        "Developed an automated language detection system using Natural Language Processing and machine learning techniques to identify multiple languages with high accuracy.",
+      image: "/language.jpg",
+      link: "https://github.com/imgmdin/Language-Detector/blob/main/language_detection.ipynb",
+      tags: ["Python", "NLP", "Machine Learning", "Text Processing"],
     },
     {
       id: 3,
-      title: "Amazon Sales Analytics",
+      title: "Netflix Content Analysis",
       description:
-        "Comprehensive sales analysis dashboard for Amazon marketplace, tracking revenue trends, product performance, and customer behavior patterns.",
-      image: "/projects/Amzon Sales Dashboard with Power BBI.jpg",
-      tags: ["Power BI", "E-commerce", "Sales Analytics"],
+        "Comprehensive analysis of Netflix's content library examining trends in content production, genre distribution, and regional preferences using data visualization techniques.",
+      image: "/netflix.jpg",
+      link: "https://github.com/imgmdin/Netflix-Movie-Analysis/blob/main/Netflix%20Movies%20Analysis.ipynb",
+      tags: ["Python", "Pandas", "Data Visualization", "Statistical Analysis"],
     },
     {
       id: 4,
-      title: "Financial Performance Dashboard",
+      title: "Apple Market Analysis",
       description:
-        "Dynamic financial analytics platform showcasing key performance indicators, revenue metrics, and market trends analysis.",
-      image: "/projects/Screenshot 2025-01-15 180212.jpg",
-      tags: ["Data Analysis", "Finance", "Visualization"],
-    },
-    {
-      id: 5,
-      title: "Uber Data Analysis",
-      description:
-        "Comprehensive analysis of Uber ride data using Python, featuring data cleaning, visualization, and pattern recognition to derive meaningful insights about user behavior and service optimization.",
-      image: "/projects/Uber data analysis with python.jpg",
-      tags: ["Python", "Data Analysis", "Pandas", "Visualization"],
-    },
-    {
-      id: 6,
-      title: "Data Analysis",
-      description:
-        "In-depth analysis of data using Python, including content categorization, regional preferences, and viewing trends to understand audience engagement and content performance metrics.",
-      image: "/projects/7.jpg",
-      tags: ["Python", "Data Analysis", "Pandas", "Visualization"],
+        "In-depth analysis of Apple's market performance, includinag stock trends, product lifecycle analysis, and market share evaluation across different regions.",
+      image: "/Apple.jpg",
+      link: "https://github.com/imgmdin/Apple-Data-Analysis/blob/main/Iphones%20Sales.ipynb",
+      tags: ["Python", "Data Analysis", "Financial Analysis", "Market Research"],
     },
   ];
+
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+  };
 
   return (
     <section
       className="w-full h-auto px-2 sm:px-4 md:px-8 lg:px-20 py-4 sm:py-8 lg:py-16 bg-black"
       id="projects"
     >
-      <h2 className="text-4xl md:text-3xl sm:text-2xl font-bold text-center mb-12 text-purple-500">My Projects</h2>
+      <h2 className="text-4xl md:text-3xl sm:text-2xl font-bold text-center mb-12 text-purple-500">
+        My Projects
+      </h2>
       <div className="flex justify-center items-center">
         <Swiper
           effect={"coverflow"}
@@ -83,7 +82,7 @@ const Project = () => {
             stretch: 0,
             depth: 100,
             modifier: 2.5,
-            slideShadows: true,          
+            slideShadows: true,
           }}
           pagination={{
             clickable: true,
@@ -98,7 +97,7 @@ const Project = () => {
             >
               <div
                 className="bg-black hover:bg-purple-900 transition-all duration-300 text-white rounded-xl shadow-lg p-3 sm:p-4 h-[400px] sm:h-[500px] md:h-[550px] lg:h-[600px] flex flex-col cursor-pointer"
-                onClick={() => setSelectedProject(project)}
+                onClick={() => handleProjectClick(project)}
               >
                 <div className="overflow-hidden rounded-lg h-[200px] sm:h-[250px] md:h-[300px] w-full">
                   <img
@@ -125,6 +124,15 @@ const Project = () => {
                       </span>
                     ))}
                   </div>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-md text-center hover:bg-purple-600 transition-colors duration-200"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    View Project
+                  </a>
                 </div>
               </div>
             </SwiperSlide>
@@ -149,7 +157,8 @@ const Project = () => {
           </div>
         </div>
       )}
-    </section>  );
+    </section>
+  );
 };
 
 export default Project;
