@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const About = () => {
   return (
     <div className="w-full min-h-screen  bg-black text-white relative overflow-hidden">
-      <div className="max-w-7xl mt-10 h-screen mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-center gap-4">
+      <div className="max-w-7xl mt-20 md:mt-10 h-screen mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-center gap-4">
         <div className="w-full lg:w-1/2 flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
