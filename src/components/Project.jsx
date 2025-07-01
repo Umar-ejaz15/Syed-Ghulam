@@ -59,10 +59,10 @@ const Project = () => {
 
   return (
     <section
-      className="w-full h-auto px-2 sm:px-4 md:px-8 lg:px-20 py-4 sm:py-8 lg:py-16 bg-black"
+      className="h-auto w-full px-4 md:px-8 lg:px-16 xl:px-24 py-8 md:py-16 bg-black"
       id="projects"
     >
-      <h2 className="text-4xl md:text-3xl sm:text-2xl font-bold text-center mb-12 bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-12 bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
         My Projects
       </h2>
       <div className="flex justify-center items-center">
@@ -88,37 +88,51 @@ const Project = () => {
             clickable: true,
           }}
           modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-          className="mySwiper"
+          className="mySwiper w-full max-w-[1400px]"
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 20
+            },
+            640: {
+              slidesPerView: "auto",
+              spaceBetween: 30
+            },
+            1024: {
+              slidesPerView: "auto",
+              spaceBetween: 40
+            }
+          }}
         >
           {projects.map((project) => (
             <SwiperSlide
               key={project.id}
-              className="!w-[250px] sm:!w-[320px] md:!w-[400px] lg:!w-[500px]"
+              className="!w-[280px] sm:!w-[340px] md:!w-[420px] lg:!w-[520px] xl:!w-[600px]"
             >
               <div
-                className="bg-black hover:bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-sm transition-all duration-300 text-white rounded-xl shadow-lg p-3 sm:p-4 h-[400px] sm:h-[500px] md:h-[550px] lg:h-[600px] flex flex-col cursor-pointer border border-purple-500/20"
+                className="bg-black hover:bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-sm transition-all duration-300 text-white rounded-xl shadow-lg p-4 md:p-6 h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px] flex flex-col cursor-pointer border border-purple-500/20 hover:scale-[1.02]"
                 onClick={() => handleProjectClick(project)}
               >
-                <div className="overflow-hidden rounded-lg h-[200px] sm:h-[250px] md:h-[300px] w-full">
+                <div className="overflow-hidden rounded-lg h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px] w-full">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover rounded-lg transition-transform duration-300 hover:scale-105"
+                    className="w-full h-full object-cover rounded-lg transition-transform duration-300 hover:scale-110"
                     loading="lazy"
                   />
                 </div>
-                <div className="flex flex-col flex-grow mt-2 sm:mt-4">
-                  <h3 className="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text mb-1 sm:mb-2">
+                <div className="flex flex-col flex-grow mt-4 md:mt-6">
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text mb-2 md:mb-4">
                     {project.title}
                   </h3>
-                  <p className="text-gray-300 text-sm sm:text-md md:text-lg lg:text-xl leading-relaxed mb-2 sm:mb-4">
+                  <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-4">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-1 sm:gap-2 mt-auto">
+                  <div className="flex flex-wrap gap-2 md:gap-3 mt-auto">
                     {project.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-300 rounded-md text-xs sm:text-sm md:text-md font-medium hover:from-purple-400 hover:to-pink-400 hover:text-black transition-colors duration-200"
+                        className="px-2.5 py-1 md:px-3 md:py-1.5 bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-300 rounded-md text-xs sm:text-sm md:text-base font-medium hover:from-purple-400 hover:to-pink-400 hover:text-black transition-colors duration-200"
                       >
                         {tag}
                       </span>
@@ -128,7 +142,7 @@ const Project = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-md text-center hover:from-purple-600 hover:to-pink-600 transition-all duration-200 transform hover:scale-105"
+                    className="mt-4 md:mt-6 px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-md text-center text-sm md:text-base hover:from-purple-600 hover:to-pink-600 transition-all duration-200 transform hover:scale-105 hover:shadow-lg"
                     onClick={(e) => e.stopPropagation()}
                   >
                     View Project
@@ -141,19 +155,29 @@ const Project = () => {
       </div>
 
       {selectedProject && (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm flex items-center justify-center z-50 p-2 sm:p-4">
-          <div className="relative max-w-4xl w-full">
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm flex items-center justify-center z-50 p-4 md:p-8">
+          <div className="relative max-w-5xl w-full">
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute -top-8 sm:-top-12 right-0 text-white text-3xl sm:text-4xl hover:text-gradient-to-r hover:from-purple-400 hover:to-pink-400 focus:outline-none transition-colors duration-200"
+              className="absolute -top-10 md:-top-14 right-0 text-white text-3xl md:text-5xl hover:text-gradient-to-r hover:from-purple-400 hover:to-pink-400 focus:outline-none transition-colors duration-200"
             >
               ×
             </button>
-            <img
-              src={selectedProject.image}
-              alt={selectedProject.title}
-              className="w-full h-auto object-center object-cover sm:h-[400px] md:h-[500px] rounded-lg shadow-2xl border border-gradient-to-r border-purple-500/20"
-            />
+            <div className="relative overflow-hidden rounded-xl">
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-auto min-h-[200px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-[500px] object-cover rounded-xl shadow-2xl border border-purple-500/20 transition-transform duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/90 to-transparent">
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2">
+                  {selectedProject.title}
+                </h3>
+                <p className="text-gray-200 text-sm md:text-base lg:text-lg">
+                  {selectedProject.description}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       )}

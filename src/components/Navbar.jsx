@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-black text-white border-b-[.05px] border-gray-800 fixed w-full z-50">
+    <div className="navbar bg-black text-white border-b-[.05px] border-gray-800 sticky w-full z-50">
       <nav className="md:container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
           <button
