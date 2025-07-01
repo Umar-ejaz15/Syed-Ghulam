@@ -76,7 +76,7 @@ const Services = () => {
             whileInView={{ width: "5rem" }}
             viewport={{ once: false }}
             transition={{ duration: 0.5 }}
-            className="h-1 bg-purple-500 mb-8"
+            className="h-1 bg-pink-500 mb-8"
           ></motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 w-full">
             {services.map((service, index) => (
@@ -90,29 +90,29 @@ const Services = () => {
                 
                
                 }}
-                className="relative group h-[180px] bg-purple-100 rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
+                className="relative group h-[180px] bg-zinc-950 rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
                 key={index}
               >
                 <div className="absolute inset-0 w-full h-full">
                   <div className="absolute inset-0 flex flex-col items-center justify-center transform transition-transform duration-300 group-hover:-translate-x-full">
                     <div className="text-4xl mb-4">{service.icon}</div>
-                    <h3 className="text-base font-semibold text-center text-black px-2">
+                    <h3 className="text-base font-semibold text-center text-pink-200 px-2">
                       {service.title}
                     </h3>
                   </div>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-purple-800 text-white transform transition-transform duration-300 translate-x-full group-hover:translate-x-0">
-                    <p className="text-sm text-center mb-3">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-gradient-to-r from-purple-700 to-pink-700 transform transition-transform duration-300 translate-x-full group-hover:translate-x-0">
+                    <p className="text-sm text-center mb-3 text-white">
                       {service.description}
                     </p>
                     <div className="w-full">
-                      <h4 className="font-semibold text-xs mb-2 text-center">
+                      <h4 className="font-semibold text-xs mb-2 text-center text-white">
                         Tools:
                       </h4>
                       <ul className="flex flex-wrap justify-center gap-2">
                         {service.tools.map((tool, idx) => (
                           <li
                             key={idx}
-                            className="text-xs bg-purple-950 px-2 py-1 rounded-xl whitespace-nowrap"
+                            className="text-xs bg-black text-pink-200 px-2 py-1 rounded-xl whitespace-nowrap"
                           >
                             {tool}
                           </li>

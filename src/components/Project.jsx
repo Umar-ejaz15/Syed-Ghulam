@@ -62,7 +62,7 @@ const Project = () => {
       className="w-full h-auto px-2 sm:px-4 md:px-8 lg:px-20 py-4 sm:py-8 lg:py-16 bg-black"
       id="projects"
     >
-      <h2 className="text-4xl md:text-3xl sm:text-2xl font-bold text-center mb-12 text-purple-500">
+      <h2 className="text-4xl md:text-3xl sm:text-2xl font-bold text-center mb-12 bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
         My Projects
       </h2>
       <div className="flex justify-center items-center">
@@ -96,7 +96,7 @@ const Project = () => {
               className="!w-[250px] sm:!w-[320px] md:!w-[400px] lg:!w-[500px]"
             >
               <div
-                className="bg-black hover:bg-purple-900 transition-all duration-300 text-white rounded-xl shadow-lg p-3 sm:p-4 h-[400px] sm:h-[500px] md:h-[550px] lg:h-[600px] flex flex-col cursor-pointer"
+                className="bg-black hover:bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-sm transition-all duration-300 text-white rounded-xl shadow-lg p-3 sm:p-4 h-[400px] sm:h-[500px] md:h-[550px] lg:h-[600px] flex flex-col cursor-pointer border border-purple-500/20"
                 onClick={() => handleProjectClick(project)}
               >
                 <div className="overflow-hidden rounded-lg h-[200px] sm:h-[250px] md:h-[300px] w-full">
@@ -108,17 +108,17 @@ const Project = () => {
                   />
                 </div>
                 <div className="flex flex-col flex-grow mt-2 sm:mt-4">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-purple-400 mb-1 sm:mb-2">
+                  <h3 className="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text mb-1 sm:mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-white text-sm sm:text-md md:text-lg lg:text-xl leading-relaxed mb-2 sm:mb-4">
+                  <p className="text-gray-300 text-sm sm:text-md md:text-lg lg:text-xl leading-relaxed mb-2 sm:mb-4">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-1 sm:gap-2 mt-auto">
                     {project.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-black text-purple-400 rounded-md text-xs sm:text-sm md:text-md font-medium hover:bg-purple-400 hover:text-black transition-colors duration-200"
+                        className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-300 rounded-md text-xs sm:text-sm md:text-md font-medium hover:from-purple-400 hover:to-pink-400 hover:text-black transition-colors duration-200"
                       >
                         {tag}
                       </span>
@@ -128,7 +128,7 @@ const Project = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-md text-center hover:bg-purple-600 transition-colors duration-200"
+                    className="mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-md text-center hover:from-purple-600 hover:to-pink-600 transition-all duration-200 transform hover:scale-105"
                     onClick={(e) => e.stopPropagation()}
                   >
                     View Project
@@ -141,18 +141,18 @@ const Project = () => {
       </div>
 
       {selectedProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-2 sm:p-4">
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm flex items-center justify-center z-50 p-2 sm:p-4">
           <div className="relative max-w-4xl w-full">
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute -top-8 sm:-top-12 right-0 text-white text-3xl sm:text-4xl hover:text-purple-400 focus:outline-none"
+              className="absolute -top-8 sm:-top-12 right-0 text-white text-3xl sm:text-4xl hover:text-gradient-to-r hover:from-purple-400 hover:to-pink-400 focus:outline-none transition-colors duration-200"
             >
               ×
             </button>
             <img
               src={selectedProject.image}
               alt={selectedProject.title}
-              className="w-full h-auto object-center object-cover sm:h-[400px] md:h-[500px] rounded-lg shadow-2xl"
+              className="w-full h-auto object-center object-cover sm:h-[400px] md:h-[500px] rounded-lg shadow-2xl border border-gradient-to-r border-purple-500/20"
             />
           </div>
         </div>
