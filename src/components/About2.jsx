@@ -49,10 +49,10 @@ const About2 = () => {
         {/* Bullet Points */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           {[
-            "I blend technical depth with creative problem-solving to turn challenges into clean solutions ✨",
-            "5+ years delivering data-driven products with measurable ROI 📊",
-            "Specialized in predictive analytics, NLP, computer vision & full-stack engineering 💡",
-            "Always balancing cutting-edge tech with real-world business impact 🎯",
+            "I blend technical depth with creative problem-solving to turn challenges into clean solutions ",
+            "5+ years delivering data-driven products with measurable ROI ",
+            "Specialized in predictive analytics, NLP, computer vision & full-stack engineering ",
+            "Always balancing cutting-edge tech with real-world business impact ",
           ].map((text, index) => (
             <motion.div
               key={index}
@@ -111,7 +111,7 @@ const About2 = () => {
             Let’s Build Something Amazing →
           </motion.a>
           <p className="mt-6 text-lg text-blue-300 font-light">
-            Turning ideas into scalable products ⚡
+            Turning ideas into scalable products 
           </p>
         </motion.div>
       </div>
