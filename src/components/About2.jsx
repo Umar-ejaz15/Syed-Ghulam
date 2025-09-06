@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { FaProjectDiagram, FaChartLine, FaUsers } from "react-icons/fa";
 
 const About2 = () => {
   const cards = [
@@ -9,21 +10,21 @@ const About2 = () => {
       subtitle: "Projects",
       description:
         "Built impactful solutions across web, AI & product development — delivering real results 🚀",
-      icon: "🎯",
+      icon: <FaProjectDiagram className="text-purple-400 group-hover:text-blue-400 transition-colors duration-300" />,
     },
     {
       title: "98%",
       subtitle: "Accuracy",
       description:
         "Advanced ML models & analytics pipelines — consistently high performance 📊",
-      icon: "⚡",
+      icon: <FaChartLine className="text-purple-400 group-hover:text-blue-400 transition-colors duration-300" />,
     },
     {
       title: "75+",
       subtitle: "Clients",
       description:
         "From startups to enterprises — scaling growth & driving innovation 🌍",
-      icon: "🤝",
+      icon: <FaUsers className="text-purple-400 group-hover:text-blue-400 transition-colors duration-300" />,
     },
   ];
 
@@ -36,8 +37,8 @@ const About2 = () => {
 
       {/* Title */}
       <motion.h2
-        initial={{  y: 30 }}
-        whileInView={{  y: 0 }}
+        initial={{ y: 30 }}
+        whileInView={{ y: 0 }}
         transition={{ duration: 0.8 }}
         className="relative text-4xl sm:text-6xl font-extrabold text-center mb-20 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
       >
@@ -55,8 +56,8 @@ const About2 = () => {
           ].map((text, index) => (
             <motion.div
               key={index}
-              initial={{  x: -40 }}
-              whileInView={{  x: 0 }}
+              initial={{ x: -40 }}
+              whileInView={{ x: 0 }}
               transition={{ delay: index * 0.2 }}
               className="relative backdrop-blur-xl bg-white/5 rounded-2xl p-6 border border-purple-500/20 hover:border-blue-500/40 hover:bg-white/10 transition-all duration-500"
             >
@@ -72,8 +73,8 @@ const About2 = () => {
           {cards.map((card, index) => (
             <motion.div
               key={index}
-              initial={{  y: 50 }}
-              whileInView={{  y: 0 }}
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="group relative"
             >
@@ -107,7 +108,7 @@ const About2 = () => {
             whileTap={{ scale: 0.95 }}
             className="relative inline-flex items-center justify-center px-12 py-5 text-lg font-bold rounded-full text-white bg-gradient-to-r from-purple-600 to-blue-600 shadow-xl shadow-purple-600/40 hover:shadow-blue-600/40 transition-all duration-300"
           >
-            Let’s Build Something Amazing →  
+            Let’s Build Something Amazing →
           </motion.a>
           <p className="mt-6 text-lg text-blue-300 font-light">
             Turning ideas into scalable products ⚡
