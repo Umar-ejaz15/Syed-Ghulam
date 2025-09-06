@@ -9,21 +9,21 @@ const About2 = () => {
       title: "150+",
       subtitle: "Projects",
       description:
-        "Built impactful solutions across web, AI & product development — delivering real results 🚀",
+        "Built impactful solutions across web, AI & product development — delivering real results ",
       icon: <FaProjectDiagram className="text-purple-400 group-hover:text-blue-400 transition-colors duration-300" />,
     },
     {
       title: "98%",
       subtitle: "Accuracy",
       description:
-        "Advanced ML models & analytics pipelines — consistently high performance 📊",
+        "Advanced ML models & analytics pipelines — consistently high performance ",
       icon: <FaChartLine className="text-purple-400 group-hover:text-blue-400 transition-colors duration-300" />,
     },
     {
       title: "75+",
       subtitle: "Clients",
       description:
-        "From startups to enterprises — scaling growth & driving innovation 🌍",
+        "From startups to enterprises — scaling growth & driving innovation ",
       icon: <FaUsers className="text-purple-400 group-hover:text-blue-400 transition-colors duration-300" />,
     },
   ];
