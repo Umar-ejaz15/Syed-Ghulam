@@ -18,11 +18,9 @@ const Page1 = () => {
       <Navbar />
       <About />
       <Services />
-      <Hire />
       <About2 />
       <Project />
       {/* <Work /> */}
-      <Hire />
       {/* <Client /> */}
       <Contact />
     </div>

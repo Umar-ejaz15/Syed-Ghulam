@@ -18,38 +18,34 @@ const Project = () => {
     {
       id: 1,
       title: "PSL Win Prediction",
-      description:
-        "Machine learning model to predict Pakistan Super League cricket match outcomes using historical data, team statistics, and player performance metrics.",
+      description: "ML model predicting Pakistan Super League match outcomes.",
       image: "/psl.jpg",
       link: "https://github.com/imgmdin/PSL-Win-Prediction/blob/main/Psl.ipynb",
-      tags: ["Python", "Machine Learning", "Data Analysis", "Sports Analytics"],
+      tags: ["Python", "ML", "Sports Analytics"],
     },
     {
       id: 2,
       title: "Language Detector",
-      description:
-        "Developed an automated language detection system using Natural Language Processing and machine learning techniques to identify multiple languages with high accuracy.",
+      description: "NLP system detecting multiple languages with high accuracy.",
       image: "/language.jpg",
       link: "https://github.com/imgmdin/Language-Detector/blob/main/language_detection.ipynb",
-      tags: ["Python", "NLP", "Machine Learning", "Text Processing"],
+      tags: ["Python", "NLP", "Text Processing"],
     },
     {
       id: 3,
       title: "Netflix Content Analysis",
-      description:
-        "Comprehensive analysis of Netflix's content library examining trends in content production, genre distribution, and regional preferences using data visualization techniques.",
+      description: "Data viz on Netflix trends, genres & regional content.",
       image: "/netflix.jpg",
       link: "https://github.com/imgmdin/Netflix-Movie-Analysis/blob/main/Netflix%20Movies%20Analysis.ipynb",
-      tags: ["Python", "Pandas", "Data Visualization", "Statistical Analysis"],
+      tags: ["Python", "Pandas", "Visualization"],
     },
     {
       id: 4,
       title: "Apple Market Analysis",
-      description:
-        "In-depth analysis of Apple's market performance, includinag stock trends, product lifecycle analysis, and market share evaluation across different regions.",
+      description: "Analysis of Apple’s stock, product lifecycle & market share.",
       image: "/Apple.jpg",
       link: "https://github.com/imgmdin/Apple-Data-Analysis/blob/main/Iphones%20Sales.ipynb",
-      tags: ["Python", "Data Analysis", "Financial Analysis", "Market Research"],
+      tags: ["Python", "Finance", "Market Research"],
     },
   ];
 
@@ -59,93 +55,88 @@ const Project = () => {
 
   return (
     <section
-      className="h-auto w-full px-4 md:px-8 lg:px-16 xl:px-24 py-8 md:py-16 bg-black"
+      className="relative h-auto w-full px-4 md:px-8 lg:px-16 xl:px-24 py-16 overflow-hidden"
       id="projects"
     >
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-12 bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-        My Projects
+      {/* Animated background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-black to-blue-900">
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-[150px] animate-ping"></div>
+      </div>
+
+      {/* Title */}
+      <h2 className="relative z-10 text-3xl md:text-5xl font-extrabold text-center mb-12 bg-gradient-to-r from-purple-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg">
+        🚀 My Projects
       </h2>
-      <div className="flex justify-center items-center">
+
+      {/* Swiper */}
+      <div className="relative z-10 flex justify-center items-center">
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
           slidesPerView={"auto"}
-          initialSlide={1}
           navigation={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
           coverflowEffect={{
-            rotate: 10,
+            rotate: 8,
             stretch: 0,
-            depth: 100,
-            modifier: 2.5,
+            depth: 120,
+            modifier: 2,
             slideShadows: true,
           }}
-          pagination={{
-            clickable: true,
-          }}
+          pagination={{ clickable: true }}
           modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-          className="mySwiper w-full max-w-[1400px]"
-          breakpoints={{
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 20
-            },
-            640: {
-              slidesPerView: "auto",
-              spaceBetween: 30
-            },
-            1024: {
-              slidesPerView: "auto",
-              spaceBetween: 40
-            }
-          }}
+          className="mySwiper w-full max-w-[1100px]"
         >
           {projects.map((project) => (
             <SwiperSlide
               key={project.id}
-              className="!w-[280px] sm:!w-[340px] md:!w-[420px] lg:!w-[520px] xl:!w-[600px]"
+              className="!w-[260px] sm:!w-[320px] md:!w-[380px] lg:!w-[420px]"
             >
               <div
-                className="bg-black hover:bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-sm transition-all duration-300 text-white rounded-xl shadow-lg p-4 md:p-6 h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px] flex flex-col cursor-pointer border border-purple-500/20 hover:scale-[1.02]"
+                className="bg-gradient-to-br from-purple-900/60 to-blue-900/60 backdrop-blur-md border border-blue-500/20 rounded-2xl shadow-lg p-5 h-[380px] sm:h-[400px] md:h-[440px] flex flex-col hover:scale-[1.04] transition-all duration-300 cursor-pointer"
                 onClick={() => handleProjectClick(project)}
               >
-                <div className="overflow-hidden rounded-lg h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px] w-full">
+                {/* Project Image */}
+                <div className="overflow-hidden rounded-xl h-[160px] sm:h-[180px] md:h-[200px] w-full">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover rounded-lg transition-transform duration-300 hover:scale-110"
+                    className="w-full h-full object-cover rounded-xl transition-transform duration-500 hover:scale-110"
                     loading="lazy"
                   />
                 </div>
-                <div className="flex flex-col flex-grow mt-4 md:mt-6">
-                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text mb-2 md:mb-4">
+
+                {/* Content */}
+                <div className="flex flex-col flex-grow mt-4">
+                  <h3 className="text-lg md:text-xl font-semibold bg-gradient-to-r from-purple-300 to-blue-300 text-transparent bg-clip-text mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-4">
+                  <p className="text-gray-300 text-sm leading-snug mb-3 line-clamp-2">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 md:gap-3 mt-auto">
+                  <div className="flex flex-wrap gap-2 mt-auto">
                     {project.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="px-2.5 py-1 md:px-3 md:py-1.5 bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-300 rounded-md text-xs sm:text-sm md:text-base font-medium hover:from-purple-400 hover:to-pink-400 hover:text-black transition-colors duration-200"
+                        className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-md text-xs font-medium"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
+
+                  {/* View button */}
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 md:mt-6 px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-md text-center text-sm md:text-base hover:from-purple-600 hover:to-pink-600 transition-all duration-200 transform hover:scale-105 hover:shadow-lg"
+                    className="mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-md text-center text-sm font-semibold shadow-lg shadow-purple-600/40 hover:shadow-blue-600/40 hover:scale-105 transition-transform"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    View Project
+                    View →
                   </a>
                 </div>
               </div>
@@ -154,26 +145,27 @@ const Project = () => {
         </Swiper>
       </div>
 
+      {/* Project Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm flex items-center justify-center z-50 p-4 md:p-8">
-          <div className="relative max-w-5xl w-full">
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm flex items-center justify-center z-50 p-6">
+          <div className="relative max-w-3xl w-full">
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute -top-10 md:-top-14 right-0 text-white text-3xl md:text-5xl hover:text-gradient-to-r hover:from-purple-400 hover:to-pink-400 focus:outline-none transition-colors duration-200"
+              className="absolute -top-10 right-0 text-white text-5xl hover:text-blue-400 transition-colors"
             >
               ×
             </button>
-            <div className="relative overflow-hidden rounded-xl">
+            <div className="relative overflow-hidden rounded-2xl border border-blue-500/20 shadow-2xl">
               <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
-                className="w-full h-auto min-h-[200px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-[500px] object-cover rounded-xl shadow-2xl border border-purple-500/20 transition-transform duration-300"
+                className="w-full h-auto min-h-[260px] object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/90 to-transparent">
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2">
+              <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/95 to-transparent">
+                <h3 className="text-2xl font-bold text-white mb-2">
                   {selectedProject.title}
                 </h3>
-                <p className="text-gray-200 text-sm md:text-base lg:text-lg">
+                <p className="text-gray-300 text-sm">
                   {selectedProject.description}
                 </p>
               </div>

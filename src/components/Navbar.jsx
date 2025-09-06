@@ -1,82 +1,106 @@
-import { motion } from "motion/react";
+"use client";
+import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Projects", href: "#projects" },
+  ];
 
   return (
-    <div className="navbar bg-black text-white border-b-[.05px] border-gray-800 sticky w-full z-50">
-      <nav className="md:container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex justify-between items-center">
+    <div className="fixed top-0 w-full z-50">
+      <nav className="backdrop-blur-xl bg-[#0a0a0f]/80 border-b border-white/10">
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          {/* Logo */}
+          <motion.a
+            href="#home"
+            className="text-2xl font-bold tracking-wide bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            dev
+          </motion.a>
+
+          {/* Menu Button (Mobile) */}
           <button
             className="lg:hidden text-white focus:outline-none"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
 
-          <ul
-            className={`lg:flex gap-4 xl:gap-10 items-center font-medium absolute lg:relative top-16 lg:top-0 left-0 w-full lg:w-auto bg-black lg:bg-transparent z-40
-            ${
-              isOpen ? "flex flex-col lg:flex-row px-4 lg:px-0" : "hidden"
-            } transition-all duration-300 py-4 lg:py-0 shadow-lg lg:shadow-none`}
-          >
-            <li className="hover:text-gray-300 transition-colors duration-300 py-2 lg:py-0 text-center lg:text-left">
-              <a href="#home" onClick={() => setIsOpen(false)}>
-                Home
-              </a>
-            </li>
-            <li className="hover:text-gray-300 transition-colors duration-300 py-2 lg:py-0 text-center lg:text-left">
-              <a href="#about" onClick={() => setIsOpen(false)}>
-                About
-              </a>
-            </li>
+          {/* Desktop Links */}
+          <ul className="hidden lg:flex gap-10 items-center font-medium">
+            {navLinks.map((link, index) => (
+              <motion.li
+                key={link.name}
+                className="text-white/70 hover:text-white transition-colors relative group cursor-pointer"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <a href={link.href}>{link.name}</a>
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+              </motion.li>
+            ))}
 
-            <li className="hover:text-gray-300 transition-colors duration-300 py-2 lg:py-0 text-center lg:text-left">
-              <a href="#services" onClick={() => setIsOpen(false)}>
-                Services
-              </a>
-            </li>
-            <li className="hover:text-gray-300 transition-colors duration-300 py-2 lg:py-0 text-center lg:text-left">
-              <a href="#Projects" onClick={() => setIsOpen(false)}>
-                Projects
-              </a>
-            </li>
-          </ul>
-
+            {/* Call to Action */}
             <motion.a
               href="#contact"
-              className="bg-purple-500 hover:bg-transparent text-white px-6 py-3 rounded-md transition-all duration-300 hover:border hover:border-purple-500 text-lg sm:text-xl font-medium flex items-center justify-center gap-2"
+              className="relative bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-xl font-medium shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(147,51,234,0.5)] transition-all duration-300 text-lg flex items-center justify-center gap-2"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Hire Me <span className="text-lg">→</span>
+              Hire Me
             </motion.a>
+          </ul>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.ul
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="lg:hidden flex flex-col gap-6 px-6 py-8 bg-[#0a0a0f]/95 shadow-lg border-t border-white/10"
+            >
+              {navLinks.map((link, index) => (
+                <motion.li
+                  key={link.name}
+                  className="text-white/80 hover:text-white transition-colors relative group cursor-pointer"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <a href={link.href} onClick={() => setIsOpen(false)}>
+                    {link.name}
+                  </a>
+                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                </motion.li>
+              ))}
+
+              {/* CTA in Mobile */}
+              <motion.a
+                href="#contact"
+                className="mt-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-xl font-medium shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(147,51,234,0.5)] transition-all duration-300 text-lg flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Hire Me
+              </motion.a>
+            </motion.ul>
+          )}
+        </AnimatePresence>
       </nav>
     </div>
   );

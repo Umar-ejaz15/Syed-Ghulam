@@ -1,132 +1,121 @@
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
+import {
+  FaChartBar,
+  FaChartLine,
+  FaBriefcase,
+  FaRobot,
+  FaLaptopCode,
+  FaPython,
+  FaProjectDiagram,
+  FaDatabase,
+} from "react-icons/fa";
 
 const Services = () => {
   const services = [
     {
       title: "Data Analysis",
-      icon: "📊",
-      description:
-        "Expert in data cleaning, preprocessing, and statistical analysis.",
+      icon: <FaChartBar className="text-purple-400 text-5xl mb-4" />,
+      description: "Cleaning, preprocessing & statistical analysis for insights.",
       tools: ["Python", "Pandas", "SQL"],
     },
     {
       title: "Data Visualization",
-      icon: "📈",
-      description:
-        "Creating interactive dashboards and reports for actionable insights.",
+      icon: <FaChartLine className="text-blue-400 text-5xl mb-4" />,
+      description: "Interactive dashboards & reports for decision making.",
       tools: ["Power BI", "Tableau", "Matplotlib"],
     },
     {
       title: "Business Intelligence",
-      icon: "💼",
-      description: "Implementing ETL processes and data warehousing solutions.",
+      icon: <FaBriefcase className="text-purple-400 text-5xl mb-4" />,
+      description: "ETL workflows & data warehousing for smarter strategies.",
       tools: ["SQL", "ETL", "Data Warehousing"],
     },
     {
       title: "Machine Learning",
-      icon: "🤖",
-      description: "Developing ML models for predictive analytics.",
+      icon: <FaRobot className="text-blue-400 text-5xl mb-4" />,
+      description: "Predictive analytics & AI solutions tailored to business.",
       tools: ["Scikit-learn", "TensorFlow", "PyTorch"],
     },
     {
       title: "Web Development",
-      icon: "💻",
-      description: "Building responsive and dynamic web applications.",
+      icon: <FaLaptopCode className="text-purple-400 text-5xl mb-4" />,
+      description: "Responsive, scalable, and modern web applications.",
       tools: ["React", "JavaScript", "Node.js"],
     },
     {
       title: "Python Development",
-      icon: "🐍",
-      description: "Creating efficient applications using Python.",
-      tools: ["Python", "Django", "FastAPI"],
+      icon: <FaPython className="text-blue-400 text-5xl mb-4" />,
+      description: "Efficient backends & automation with Python frameworks.",
+      tools: ["Django", "FastAPI", "Flask"],
     },
     {
       title: "Statistical Analysis",
-      icon: "📉",
-      description: "Conducting statistical analysis to uncover patterns.",
-      tools: ["R", "Statistical Testing", "Regression"],
+      icon: <FaProjectDiagram className="text-purple-400 text-5xl mb-4" />,
+      description: "Hypothesis testing, regression & data-driven strategies.",
+      tools: ["R", "Stats Models", "SPSS"],
     },
     {
       title: "Data Engineering",
-      icon: "⚙️",
-      description: "Building robust data pipelines and infrastructure.",
+      icon: <FaDatabase className="text-blue-400 text-5xl mb-4" />,
+      description: "Pipelines, big data infra & scalable architectures.",
       tools: ["Apache Spark", "Airflow", "AWS"],
     },
   ];
 
   return (
-    <motion.section
-     
-      className="w-full min-h-screen px-4 py-12 bg-black"
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col items-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.5 }}
-            className="text-3xl font-bold text-center mb-8 text-purple-500"
-          >
-            Stuff I'm Really Good At
-          </motion.h2>
+    <section className="relative w-full min-h-screen bg-gradient-to-br from-black via-[#0a0018] to-black py-24 overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute -top-32 -left-20 w-[25rem] h-[25rem] bg-purple-700/30 rounded-full blur-[150px]" />
+      <div className="absolute bottom-0 right-0 w-[25rem] h-[25rem] bg-blue-600/30 rounded-full blur-[160px]" />
+
+      {/* Section Title */}
+      <motion.h2
+        initial={{  y: 30 }}
+        whileInView={{  y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl sm:text-6xl font-extrabold text-center mb-16 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+      >
+        Stuff I’m Really Good At
+      </motion.h2>
+
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 relative z-10">
+        {services.map((service, index) => (
           <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: "5rem" }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.5 }}
-            className="h-1 bg-pink-500 mb-8"
-          ></motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 w-full">
-            {services.map((service, index) => (
-              <motion.div
-                initial={{ scale: 0, y: 100 }}
-                whileInView={{ scale: 1,y: 0 }}
-                viewport={{ once: false }}
-                transition={{
-                  duration: 0.1,
-                  delay: index * 0.01,
-                
-               
-                }}
-                className="relative group h-[180px] bg-zinc-950 rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
-                key={index}
-              >
-                <div className="absolute inset-0 w-full h-full">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center transform transition-transform duration-300 group-hover:-translate-x-full">
-                    <div className="text-4xl mb-4">{service.icon}</div>
-                    <h3 className="text-base font-semibold text-center text-pink-200 px-2">
-                      {service.title}
-                    </h3>
-                  </div>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-gradient-to-r from-purple-700 to-pink-700 transform transition-transform duration-300 translate-x-full group-hover:translate-x-0">
-                    <p className="text-sm text-center mb-3 text-white">
-                      {service.description}
-                    </p>
-                    <div className="w-full">
-                      <h4 className="font-semibold text-xs mb-2 text-center text-white">
-                        Tools:
-                      </h4>
-                      <ul className="flex flex-wrap justify-center gap-2">
-                        {service.tools.map((tool, idx) => (
-                          <li
-                            key={idx}
-                            className="text-xs bg-black text-pink-200 px-2 py-1 rounded-xl whitespace-nowrap"
-                          >
-                            {tool}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+            key={index}
+            initial={{  y: 40 }}
+            whileInView={{  y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.6 }}
+            whileHover={{ y: -10, scale: 1.05 }}
+            className="group relative rounded-2xl overflow-hidden border border-white/10 backdrop-blur-xl bg-black/60 shadow-lg shadow-purple-900/30 hover:shadow-purple-600/50 transition-all duration-500"
+          >
+            {/* Gradient Hover Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition duration-500" />
+
+            <div className="relative z-10 flex flex-col items-center p-8 h-full text-center">
+              {service.icon}
+              <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-purple-300 to-blue-300 text-transparent bg-clip-text">
+                {service.title}
+              </h3>
+              <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                {service.description}
+              </p>
+              <div className="flex flex-wrap justify-center gap-2 mt-auto">
+                {service.tools.map((tool, idx) => (
+                  <span
+                    key={idx}
+                    className="text-xs px-3 py-1 rounded-full bg-purple-600/20 text-purple-200 border border-purple-500/30"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </motion.section>
+    </section>
   );
 };
 
